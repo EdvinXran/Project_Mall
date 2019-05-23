@@ -13,7 +13,6 @@ public class CskaoyanMallAdmin {
 
     private Date lastLoginTime;
 
-    private String avatar;
 
     private Date addTime;
 
@@ -61,14 +60,6 @@ public class CskaoyanMallAdmin {
 
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar == null ? null : avatar.trim();
     }
 
     public Date getAddTime() {

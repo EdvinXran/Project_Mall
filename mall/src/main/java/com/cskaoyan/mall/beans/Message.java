@@ -4,17 +4,17 @@ package com.cskaoyan.mall.beans;
  * @Author: Tangxuan
  * @Date: 2019/5/22 22:11
  */
-public class LoginMessage {
+public class Message {
     private int errno;
 
     private Object data;
 
     private String errmsg;
 
-    public LoginMessage() {
+    public Message() {
     }
 
-    public LoginMessage(int errno, Object data, String errmsg) {
+    public Message(int errno, Object data, String errmsg) {
         this.errno = errno;
         this.data = data;
         this.errmsg = errmsg;

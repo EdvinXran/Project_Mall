@@ -11,6 +11,29 @@ public class CskaoyanMallAdExample {
 
     protected List<Criteria> oredCriteria;
 
+    protected int page;
+    protected int limit;
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public void setOredCriteria(List<Criteria> oredCriteria) {
+        this.oredCriteria = oredCriteria;
+    }
+
     public CskaoyanMallAdExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
