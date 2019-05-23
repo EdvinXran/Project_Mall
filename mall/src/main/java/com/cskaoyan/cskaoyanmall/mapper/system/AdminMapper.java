@@ -2,10 +2,13 @@ package com.cskaoyan.cskaoyanmall.mapper.system;
 
 import com.cskaoyan.cskaoyanmall.beans.system.Admin;
 import com.cskaoyan.cskaoyanmall.beans.system.AdminExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+
+@Mapper
 public interface AdminMapper {
     long countByExample(AdminExample example);
 

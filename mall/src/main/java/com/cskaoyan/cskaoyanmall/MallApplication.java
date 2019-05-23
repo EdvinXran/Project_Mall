@@ -1,4 +1,4 @@
-package com.cskaoyan.mall;
+package com.cskaoyan.cskaoyanmall;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 不用再在mapper类上使用mapper注解
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.cskaoyan.mall.mapper")
+@MapperScan(basePackages = "com.cskaoyan.cskaoyanmall.mapper")
 public class MallApplication {
 
     public static void main(String[] args) {
