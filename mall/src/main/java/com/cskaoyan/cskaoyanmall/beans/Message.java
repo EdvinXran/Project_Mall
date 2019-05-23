@@ -1,11 +1,20 @@
 package com.cskaoyan.cskaoyanmall.beans;
 
-public class LoginMessage {
+public class Message {
     private int errno;
 
     private Object data;
 
     private String errmsg;
+
+    public Message(int errno, Object data, String errmsg) {
+        this.errno = errno;
+        this.data = data;
+        this.errmsg = errmsg;
+    }
+
+    public Message() {
+    }
 
     public int getErrno() {
         return errno;

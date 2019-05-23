@@ -1,7 +1,7 @@
 package com.cskaoyan.cskaoyanmall.service;
 
-import com.cskaoyan.cskaoyanmall.beans.LoginMessage;
+import com.cskaoyan.cskaoyanmall.beans.Message;
 
 public interface LoginService {
-    LoginMessage login(String username,String password);
+    Message login(String username, String password);
 }

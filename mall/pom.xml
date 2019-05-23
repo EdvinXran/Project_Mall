@@ -53,7 +53,12 @@
             <version>8.0.12</version>
             <scope>runtime</scope>
         </dependency>
+<!--json数据转换-->
 
+        <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        </dependency>
         <!-- validation -->
         <!--<dependency>-->
             <!--<groupId>org.hibernate</groupId>-->

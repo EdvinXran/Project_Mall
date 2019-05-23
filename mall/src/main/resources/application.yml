@@ -6,7 +6,7 @@ spring:
 spring:
   profiles: sly
   datasource:
-    url: jdbc:mysql://localhost:3306/erp_com.cskaoyan?serverTimezone=GMT&useSSL=false
+    url: jdbc:mysql://localhost:3306/cskaoyanmall?serverTimezone=GMT&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 13579abc

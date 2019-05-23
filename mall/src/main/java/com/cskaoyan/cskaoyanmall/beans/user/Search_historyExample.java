@@ -15,6 +15,34 @@ public class Search_historyExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
+    protected Integer startRow;
+
+    protected Integer rows;
+
+
+    public Search_historyExample(String orderByClause, Integer startRow, Integer rows) {
+        this.orderByClause = orderByClause;
+        this.startRow = startRow;
+        this.rows = rows;
+        oredCriteria = new ArrayList<Criteria>();
+    }
+
+    public Integer getStartRow() {
+        return startRow;
+    }
+
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
+    }
+
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }

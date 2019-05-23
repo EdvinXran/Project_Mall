@@ -3,6 +3,7 @@ package com.cskaoyan.cskaoyanmall.mapper.user;
 import com.cskaoyan.cskaoyanmall.beans.user.User;
 import com.cskaoyan.cskaoyanmall.beans.user.UserExample;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -28,4 +29,7 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    @Select("select * from cskaoyan_mall_user order by #{sort} #{order} limit #{start_i}, #{limit}" )
+    List<User> selectPageList(@Param("start_i") int start_i, @Param("limit") int limit, @Param("sort") String sort, @Param("order") String order);
 }

@@ -11,6 +11,35 @@ public class CollectExample {
 
     protected List<Criteria> oredCriteria;
 
+    protected Integer startRow;
+
+    protected Integer rows;
+
+
+    public CollectExample(String orderByClause, Integer startRow, Integer rows) {
+        this.orderByClause = orderByClause;
+        this.startRow = startRow;
+        this.rows = rows;
+        oredCriteria = new ArrayList<Criteria>();
+    }
+
+    public Integer getStartRow() {
+        return startRow;
+    }
+
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
+    }
+
+
     public CollectExample() {
         oredCriteria = new ArrayList<Criteria>();
     }

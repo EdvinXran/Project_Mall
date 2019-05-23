@@ -9,6 +9,33 @@ public class AddressExample {
 
     protected boolean distinct;
 
+    protected Integer startRow;
+
+    protected Integer rows;
+
+    public AddressExample(String orderByClause, Integer startRow, Integer rows) {
+        this.orderByClause = orderByClause;
+        this.startRow = startRow;
+        this.rows = rows;
+        oredCriteria = new ArrayList<Criteria>();
+    }
+
+    public Integer getStartRow() {
+        return startRow;
+    }
+
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
+    }
+
     protected List<Criteria> oredCriteria;
 
     public AddressExample() {

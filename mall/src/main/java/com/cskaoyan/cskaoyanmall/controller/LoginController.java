@@ -1,6 +1,7 @@
 package com.cskaoyan.cskaoyanmall.controller;
 
-import com.cskaoyan.cskaoyanmall.beans.LoginMessage;
+import com.cskaoyan.cskaoyanmall.beans.LoginData;
+import com.cskaoyan.cskaoyanmall.beans.Message;
 import com.cskaoyan.cskaoyanmall.beans.system.Admin;
 import com.cskaoyan.cskaoyanmall.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,22 @@ public class LoginController {
 
     @RequestMapping("admin/auth/login")
     @ResponseBody
-    public LoginMessage login(@RequestBody Admin admin){
+    public Message login(@RequestBody Admin admin){
         String username = admin.getUsername();
         String password = admin.getPassword();
         return loginService.login(username,password);
     }
+
+    @RequestMapping("admin/auth/info")
+    @ResponseBody
+    public Message loginInfo(String token){
+
+        String[] roles={"超级管理员"};
+        String[] perms={"*"};
+        LoginData data = new LoginData(roles, "admin123", perms, "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
+        return new Message(0,data,"成功");
+    }
+
+//    @RequestMapping("admin/dashboard")
+//    public
 }
