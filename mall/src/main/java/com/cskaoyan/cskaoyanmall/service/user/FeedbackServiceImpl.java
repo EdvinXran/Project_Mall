@@ -18,12 +18,12 @@ public class FeedbackServiceImpl implements FeedbackService {
 
 
     @Override
-    public Message pageListWithCondition(int page,int limit,String sort,String order,Integer userId,Integer id) {
+    public Message pageListWithCondition(int page,int limit,String sort,String order,String username,Integer id) {
         int start_i=(page-1)*limit;
         long total= feedbackMapper.countByExample(new FeedbackExample());
         FeedbackExample feedbackExample = new FeedbackExample(sort+" "+order,start_i,limit);
         FeedbackExample.Criteria feedbackExampleCriteria = feedbackExample.createCriteria();
-        if(userId!=null&&!"".equals(userId)){ feedbackExampleCriteria.andUserIdEqualTo(userId);}
+        if(username!=null&&!"".equals(username)){ feedbackExampleCriteria.andUsernameLike("%"+username+"%");}
         if(id!=null&&!"".equals(id)){ feedbackExampleCriteria.andIdEqualTo(id);}
         List<Feedback> feedbacks = feedbackMapper.selectByExample(feedbackExample);
         ItemTotal itemTotal = new ItemTotal(feedbacks, total);

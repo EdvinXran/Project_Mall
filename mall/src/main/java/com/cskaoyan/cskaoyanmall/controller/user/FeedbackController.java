@@ -17,8 +17,8 @@ public class FeedbackController {
 
     @RequestMapping("list")
     @ResponseBody
-    public Message pageList(int page,int limit,String sort,String order,Integer userId,Integer id){
-        return feedbackService.pageListWithCondition(page,limit,sort,order,userId,id);
+    public Message pageList(int page,int limit,String sort,String order,String username,Integer id){
+        return feedbackService.pageListWithCondition(page,limit,sort,order,username,id);
     }
 
 }

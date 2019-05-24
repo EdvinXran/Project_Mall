@@ -14,19 +14,19 @@ import java.util.List;
 public class FootprintServiceImpl implements FootprintService {
 
     @Autowired
-    FootprintMapper collectMapper;
+    FootprintMapper footprintMapper;
 
 
     @Override
     public Message pageListWithCondition(int page,int limit,String sort,String order,Integer userId,Integer goodsId) {
         int start_i=(page-1)*limit;
-        long total= collectMapper.countByExample(new FootprintExample());
-        FootprintExample collectExample = new FootprintExample(sort+" "+order,start_i,limit);
-        FootprintExample.Criteria collectExampleCriteria = collectExample.createCriteria();
-        if(userId!=null&&!"".equals(userId)){ collectExampleCriteria.andUserIdEqualTo(userId);}
-        if(goodsId!=null&&!"".equals(goodsId)){ collectExampleCriteria.andGoodsIdEqualTo(goodsId);}
-        List<Footprint> collects = collectMapper.selectByExample(collectExample);
-        ItemTotal itemTotal = new ItemTotal(collects, total);
+        long total= footprintMapper.countByExample(new FootprintExample());
+        FootprintExample footprintExample = new FootprintExample(sort+" "+order,start_i,limit);
+        FootprintExample.Criteria footprintExampleCriteria = footprintExample.createCriteria();
+        if(userId!=null&&!"".equals(userId)){ footprintExampleCriteria.andUserIdEqualTo(userId);}
+        if(goodsId!=null&&!"".equals(goodsId)){ footprintExampleCriteria.andGoodsIdEqualTo(goodsId);}
+        List<Footprint> footprints = footprintMapper.selectByExample(footprintExample);
+        ItemTotal itemTotal = new ItemTotal(footprints, total);
         return new Message(0,itemTotal,"成功");
     }
 }

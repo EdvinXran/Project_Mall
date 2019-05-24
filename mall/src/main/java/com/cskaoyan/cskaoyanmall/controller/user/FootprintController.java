@@ -1,7 +1,7 @@
 package com.cskaoyan.cskaoyanmall.controller.user;
 
 import com.cskaoyan.cskaoyanmall.beans.Message;
-import com.cskaoyan.cskaoyanmall.service.user.CollectService;
+import com.cskaoyan.cskaoyanmall.service.user.FootprintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("admin/footprint")
 public class FootprintController {
     @Autowired
-    CollectService footprintService;
+    FootprintService footprintService;
 
 
 
