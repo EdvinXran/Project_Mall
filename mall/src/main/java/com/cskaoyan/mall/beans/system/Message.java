@@ -1,4 +1,4 @@
-package com.cskaoyan.mall.beans;
+package com.cskaoyan.mall.beans.system;
 
 /**
  * @Author: Tangxuan

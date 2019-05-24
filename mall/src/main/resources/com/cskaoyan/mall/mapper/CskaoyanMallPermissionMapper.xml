@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cskaoyan.mall.mapper.CskaoyanMallAdMapper">
-  <resultMap id="BaseResultMap" type="com.cskaoyan.mall.beans.promotion.CskaoyanMallAd">
+<mapper namespace="com.cskaoyan.mall.mapper.CskaoyanMallPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.cskaoyan.mall.beans.CskaoyanMallPermission">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="link" jdbcType="VARCHAR" property="link" />
-    <result column="url" jdbcType="VARCHAR" property="url" />
-    <result column="position" jdbcType="TINYINT" property="position" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
-    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
-    <result column="enabled" jdbcType="BIT" property="enabled" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
@@ -74,83 +68,57 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, link, url, `position`, content, start_time, end_time, enabled, add_time,
-    update_time, deleted
+    id, role_id, permission, add_time, update_time, deleted
   </sql>
-  <select id="selectByExample" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAdExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from cskaoyan_mall_ad
+    from cskaoyan_mall_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-    <if test="offset != null &amp;&amp; limit != null &amp;&amp; limit != 0">
-      limit ${offset},${limit}
-    </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from cskaoyan_mall_ad
+    from cskaoyan_mall_permission
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from cskaoyan_mall_ad
+    delete from cskaoyan_mall_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAdExample">
-    delete from cskaoyan_mall_ad
+  <delete id="deleteByExample" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermissionExample">
+    delete from cskaoyan_mall_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAd">
-    insert into cskaoyan_mall_ad (id, name, link, 
-      url, `position`, content,
-      start_time, end_time, enabled, 
+  <insert id="insert" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermission">
+    insert into cskaoyan_mall_permission (id, role_id, permission, 
       add_time, update_time, deleted
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{position,jdbcType=TINYINT}, #{content,jdbcType=VARCHAR}, 
-      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT}, 
+    values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, 
       #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAd">
-    insert into cskaoyan_mall_ad
+  <insert id="insertSelective" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermission">
+    insert into cskaoyan_mall_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="name != null">
-        name,
+      <if test="roleId != null">
+        role_id,
       </if>
-      <if test="link != null">
-        link,
-      </if>
-      <if test="url != null">
-        url,
-      </if>
-      <if test="position != null">
-        `position`,
-      </if>
-      <if test="content != null">
-        content,
-      </if>
-      <if test="startTime != null">
-        start_time,
-      </if>
-      <if test="endTime != null">
-        end_time,
-      </if>
-      <if test="enabled != null">
-        enabled,
+      <if test="permission != null">
+        permission,
       </if>
       <if test="addTime != null">
         add_time,
@@ -166,29 +134,11 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
       </if>
-      <if test="link != null">
-        #{link,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null">
-        #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="position != null">
-        #{position,jdbcType=TINYINT},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="startTime != null">
-        #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null">
-        #{endTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="enabled != null">
-        #{enabled,jdbcType=BIT},
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
       </if>
       <if test="addTime != null">
         #{addTime,jdbcType=TIMESTAMP},
@@ -201,41 +151,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAdExample" resultType="java.lang.Long">
-    select count(*) from cskaoyan_mall_ad
+  <select id="countByExample" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermissionExample" resultType="java.lang.Long">
+    select count(*) from cskaoyan_mall_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update cskaoyan_mall_ad
+    update cskaoyan_mall_permission
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.roleId != null">
+        role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
-      <if test="record.link != null">
-        link = #{record.link,jdbcType=VARCHAR},
-      </if>
-      <if test="record.url != null">
-        url = #{record.url,jdbcType=VARCHAR},
-      </if>
-      <if test="record.position != null">
-        position = #{record.position,jdbcType=TINYINT},
-      </if>
-      <if test="record.content != null">
-        content = #{record.content,jdbcType=VARCHAR},
-      </if>
-      <if test="record.startTime != null">
-        start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.endTime != null">
-        end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.enabled != null">
-        enabled = #{record.enabled,jdbcType=BIT},
+      <if test="record.permission != null">
+        permission = #{record.permission,jdbcType=VARCHAR},
       </if>
       <if test="record.addTime != null">
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
@@ -252,16 +184,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update cskaoyan_mall_ad
+    update cskaoyan_mall_permission
     set id = #{record.id,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      link = #{record.link,jdbcType=VARCHAR},
-      url = #{record.url,jdbcType=VARCHAR},
-      position = #{record.position,jdbcType=TINYINT},
-      content = #{record.content,jdbcType=VARCHAR},
-      start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      enabled = #{record.enabled,jdbcType=BIT},
+      role_id = #{record.roleId,jdbcType=INTEGER},
+      permission = #{record.permission,jdbcType=VARCHAR},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       deleted = #{record.deleted,jdbcType=BIT}
@@ -269,32 +195,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAd">
-    update cskaoyan_mall_ad
+  <update id="updateByPrimaryKeySelective" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermission">
+    update cskaoyan_mall_permission
     <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=INTEGER},
       </if>
-      <if test="link != null">
-        link = #{link,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null">
-        url = #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="position != null">
-        position = #{position,jdbcType=TINYINT},
-      </if>
-      <if test="content != null">
-        content = #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="startTime != null">
-        start_time = #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null">
-        end_time = #{endTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="enabled != null">
-        enabled = #{enabled,jdbcType=BIT},
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
       </if>
       <if test="addTime != null">
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -308,16 +216,10 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.mall.beans.promotion.CskaoyanMallAd">
-    update cskaoyan_mall_ad
-    set name = #{name,jdbcType=VARCHAR},
-      link = #{link,jdbcType=VARCHAR},
-      url = #{url,jdbcType=VARCHAR},
-      position = #{position,jdbcType=TINYINT},
-      content = #{content,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=TIMESTAMP},
-      end_time = #{endTime,jdbcType=TIMESTAMP},
-      enabled = #{enabled,jdbcType=BIT},
+  <update id="updateByPrimaryKey" parameterType="com.cskaoyan.mall.beans.CskaoyanMallPermission">
+    update cskaoyan_mall_permission
+    set role_id = #{roleId,jdbcType=INTEGER},
+      permission = #{permission,jdbcType=VARCHAR},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       deleted = #{deleted,jdbcType=BIT}

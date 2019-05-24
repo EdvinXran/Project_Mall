@@ -2,22 +2,12 @@ package com.cskaoyan.mall.beans;
 
 import java.util.Date;
 
-public class CskaoyanMallAd {
+public class CskaoyanMallRole {
     private Integer id;
 
     private String name;
 
-    private String link;
-
-    private String url;
-
-    private Byte position;
-
-    private String content;
-
-    private Date startTime;
-
-    private Date endTime;
+    private String desc;
 
     private Boolean enabled;
 
@@ -43,52 +33,12 @@ public class CskaoyanMallAd {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getLink() {
-        return link;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setLink(String link) {
-        this.link = link == null ? null : link.trim();
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
-
-    public Byte getPosition() {
-        return position;
-    }
-
-    public void setPosition(Byte position) {
-        this.position = position;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
     }
 
     public Boolean getEnabled() {
