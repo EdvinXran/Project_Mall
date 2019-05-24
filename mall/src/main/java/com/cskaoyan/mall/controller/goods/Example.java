@@ -1,4 +1,4 @@
-package com.cskaoyan.mall.controller.product;
+package com.cskaoyan.mall.controller.goods;
 
 /**
  * @Author: Tangxuan

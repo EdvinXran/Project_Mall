@@ -6,16 +6,16 @@ import java.util.Arrays;
  * @Author: Tangxuan
  * @Date: 2019/5/23 10:58
  */
-public class data {
+public class Data {
     private String[] roles;
     private String name;
     private String[] perms;
     private String avatar;
 
-    public data() {
+    public Data() {
     }
 
-    public data(String[] roles, String name, String[] perms,String avatar) {
+    public Data(String[] roles, String name, String[] perms, String avatar) {
         this.roles = roles;
         this.name = name;
         this.perms = perms;
